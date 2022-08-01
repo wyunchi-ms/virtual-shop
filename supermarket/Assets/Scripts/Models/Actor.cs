@@ -11,4 +11,26 @@ public class Actor
     public string avatar;
 
     public GameObject model;
+
+    public float expireTime;
+
+    public void Chat(string Content)
+    {
+
+    }
+
+    public void Hangout()
+    {
+
+    }
+
+    public void PayBill()
+    {
+
+    }
+
+    public void GotoArea(string area)
+    {
+        
+    }
 }

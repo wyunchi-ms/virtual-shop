@@ -16,6 +16,11 @@ public class DanmuConsumer : MonoBehaviour
     private EventingBasicConsumer consumer;
     private string consumerTag;
 
+    private JsonDeserializerSettings deserializerSettings = new JsonDeserializerSettings
+    {
+        ContractResolver = new CamelCasePropertyNamesContractResolver()
+    };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +43,65 @@ public class DanmuConsumer : MonoBehaviour
             channel.BasicAck(ea.DeliveryTag, false);
             string str = Encoding.UTF8.GetString(body);
             Dictionary<string, object> record = JsonConvert.DeserializeObject<Dictionary<string, object>>(str);
-            ulong uid = Convert.ToUInt64(record.GetValueOrDefault("user_id"));
-            string nickname = (string)record.GetValueOrDefault("nickname");
-            string avatarUrl = (string)record.GetValueOrDefault("avatar");
-            ActorManager.Instance.AddActor(uid, nickname, avatarUrl);
+            string actionType = (string)record.GetValueOrDefault("action_type");
+
+            if (actionType == ActionTypeConstants.ChatType)
+            {
+                ChatMessage chatMessage = JsonConvert.DeserializeObject<ChatMessage>(str, deserializerSettings);
+                Actor actor = ActorManager.Instance.GetActor(chatMessage.UserId);
+                if (actor == null)
+                {
+                    ActorManager.Instance.AddActor(chatMessage.UserId, chatMessage.Nickname, chatMessage.Avatar);
+                }
+                else
+                {
+                    if (chatMessage.Content.Contains("闲逛"))
+                    {
+                        actor.Hangout();
+                    }
+                    else
+                    {
+                        actor.Chat(chatMessage.Content);
+                        if (chatMessage.Content.Contains("结账"))
+                        {
+                            actor.PayBill();
+                        }
+                    }
+                }
+            }
+            else if (actionType == ActionTypeConstants.FansclubType)
+            {
+                FansclubMessage fansclubMessage = JsonConvert.DeserializeObject<FansclubMessage>(str, deserializerSettings);
+            }
+            else if (actionType == ActionTypeConstants.GiftType)
+            {
+                GiftMessage giftMessage = JsonConvert.DeserializeObject<GiftMessage>(str, deserializerSettings);
+            }
+            else if (actionType == ActionTypeConstants.LikeType)
+            {
+                LikeMessage likeMessage = JsonConvert.DeserializeObject<LikeMessage>(str, deserializerSettings);
+            }
+            else if (actionType == ActionTypeConstants.MemberType)
+            {
+                MemberMessage memberMessage = JsonConvert.DeserializeObject<MemberMessage>(str, deserializerSettings);
+            }
+            else if (actionType == ActionTypeConstants.RoomType)
+            {
+                RoomMessage roomMessage = JsonConvert.DeserializeObject<RoomMessage>(str, deserializerSettings);
+            }
+            else if (actionType == ActionTypeConstants.RoomUserSeqType)
+            {
+                RoomUserSeqMessage roomUserSeqMessage = JsonConvert.DeserializeObject<RoomUserSeqMessage>(str, deserializerSettings);
+            }
+            else if (actionType == ActionTypeConstants.SocialType)
+            {
+                SocialMessage socialMessage = JsonConvert.DeserializeObject<SocialMessage>(str, deserializerSettings);
+            }
+
+            // ulong uid = Convert.ToUInt64(record.GetValueOrDefault("user_id"));
+            // string nickname = (string)record.GetValueOrDefault("nickname");
+            // string avatarUrl = (string)record.GetValueOrDefault("avatar");
+            // ActorManager.Instance.AddActor(uid, nickname, avatarUrl);
         };
 
         channel.BasicQos(0, 1, false);

@@ -16,6 +16,10 @@ public class ActorManager : MonoBehaviour
 
     public GameObject avatarPrefab;
 
+    private float LastClearTime;
+
+    private float ClearInterval;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -31,16 +35,7 @@ public class ActorManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //AddActor(3595505949, "”√***", "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_85253e1ab05045bc9b20036767238524.jpeg");
-        //AddActor(3702882800, "èà***", "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_d3ac730120f04a829d74a75fa7044957.jpeg");
-        //AddActor(77707764054, "”√***", "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_3793_3114521287.jpeg");
-        //AddActor(151562171, "??***", "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_31b0f7f97b7a45c09d1ca91182bc2271.jpeg");
-        //AddActor(3931216667, "∏∂***", "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_3795_3044413937.jpeg");
-        //AddActor(3476851497, "«·***", "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_318e30006e4fad5af028b.jpeg");
-        //AddActor(2274433369, "¥˙***", "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_30fd90006b65c6f8e6beb.jpeg");
-        //AddActor(1167221675, "“«***", "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_b244f51c86264219936d023a02c6a9f9.jpeg");
-        //AddActor(1872898192, "Œı***", "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_16dd3699811ffbcccd5a307a399a60f9.jpeg");
-        //AddActor(1263525190, "—æ***", "https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_f8c60009732acc7746c0.jpeg");
+        LastClearTime = Time.time;
     }
 
     // Update is called once per frame
@@ -55,6 +50,12 @@ public class ActorManager : MonoBehaviour
             AIDestinationSetter setter = actor.model.GetComponent<AIDestinationSetter>();
             setter.target = gameObjects[0].GetComponent<Transform>();
             StartCoroutine(DownloadImage(actor, actor.avatar));
+        }
+        float currentTime = Time.time;
+        if (currentTime >= LastClearTime + ClearInterval)
+        {
+            ClearActors();
+            LastClearTime = currentTime;
         }
     }
 
@@ -74,6 +75,18 @@ public class ActorManager : MonoBehaviour
         }
     }
 
+    public Actor GetActor(ulong uid)
+    {
+        if (actors.ContainsKey(uid))
+        {
+            return actors[uid];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public void AddActor(ulong uid, string nickname, string avatar)
     {
         if (!actors.ContainsKey(uid))
@@ -84,5 +97,38 @@ public class ActorManager : MonoBehaviour
             actors.Add(actor.uid, actor);
             queue.Enqueue(actor);
         }
+    }
+
+    public void RemoveActor(Actor actor)
+    {
+        ulong uid = actor.uid;
+        if (actors.ContainsKey(uid))
+        {
+            actors.Remove(uid);
+            actor.model.Destroy();
+        }
+    }
+
+    public void ClearActors()
+    {
+        float currentTime = Time.time;
+
+        List<ulong> uidList = new List<ulong>(actors.Keys);
+        foreach (ulong uid in uidList)
+        {
+            if (actors.ContainsKey(uid))
+            {
+                Actor actor = actors[uid];
+                if (currentTime >= actor.expireTime)
+                {
+                    RemoveActor(actor);
+                }
+            }
+        }
+    }
+
+    public int CountActor()
+    {
+        return actors.Count;
     }
 }

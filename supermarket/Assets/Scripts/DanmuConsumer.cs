@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
+using Newtonsoft.Json.Serialization;
 
 public class DanmuConsumer : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class DanmuConsumer : MonoBehaviour
     private EventingBasicConsumer consumer;
     private string consumerTag;
 
-    private JsonDeserializerSettings deserializerSettings = new JsonDeserializerSettings
+    private JsonSerializerSettings deserializerSettings = new JsonSerializerSettings
     {
         ContractResolver = new CamelCasePropertyNamesContractResolver()
     };

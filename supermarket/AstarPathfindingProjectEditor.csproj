@@ -56,34 +56,34 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AstarPathfindingProject\Editor\RVONavmeshEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\SeekerEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\AILerpEditor.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\GridGeneratorEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\RVOSquareObstacleEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\ProceduralGridMoverEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\Legacy\LegacyRVOControllerEditor2.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\Legacy\LegacyRichAIEditor2.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AstarPathEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AstarUpdateChecker.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphUpdateSceneEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\NavmeshCutEditor.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Editor\AstarUpdateWindow.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\Legacy\LegacyRVOControllerEditor2.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphUpdateSceneEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\Legacy\LegacyAIPathEditor2.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\NavmeshAddEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\AnimationLinkEditor.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\RecastGraphEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\PointGeneratorEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\RVOSimulatorEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\NavMeshGeneratorEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\CustomGraphEditorAttribute.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\AIBaseEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\RVOSquareObstacleEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\NavmeshCutEditor.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\GraphEditor.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Editor\RecastMeshObjEditor.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Editor\ModifierEditors\SmoothModifierEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AnimationLinkEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\RVONavmeshEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\NavMeshGeneratorEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\Legacy\LegacyAIPathEditor2.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\ProceduralGridMoverEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\PointGeneratorEditor.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Editor\GraphEditors\LayerGridGraphEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\CustomGraphEditorAttribute.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Editor\ModifierEditors\RaycastModifierEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\SeekerEditor.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Editor\Legacy\LegacyEditorHelper2.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\NavmeshAddEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AIBaseEditor.cs" />
-    <Compile Include="Assets\AstarPathfindingProject\Editor\AILerpEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\Legacy\LegacyRichAIEditor2.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\AstarPathEditor.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\AstarUpdateChecker.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Editor\RVOSimulatorEditor.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Editor\RVOControllerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -354,6 +354,9 @@
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Threading.Channels">
+      <HintPath>Assets\Plugins\System.Threading.Channels.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -372,8 +375,14 @@
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>Assets\Plugins\RabbitMQ.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
@@ -384,29 +393,20 @@
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Cecil.Rocks">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.ClipperLib">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\Clipper\Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Channels">
-      <HintPath>Assets\Plugins\System.Threading.Channels.dll</HintPath>
-    </Reference>
-    <Reference Include="RabbitMQ.Client">
-      <HintPath>Assets\Plugins\RabbitMQ.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.ClipperLib">
-      <HintPath>Assets\AstarPathfindingProject\Plugins\Clipper\Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Poly2Tri">
       <HintPath>Assets\AstarPathfindingProject\Plugins\Poly2Tri\Pathfinding.Poly2Tri.dll</HintPath>

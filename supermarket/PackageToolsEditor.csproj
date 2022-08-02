@@ -56,9 +56,9 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AstarPathfindingProject\PackageTools\Editor\EditorBase.cs" />
     <Compile Include="Assets\AstarPathfindingProject\PackageTools\Editor\OptimizationHandler.cs" />
     <Compile Include="Assets\AstarPathfindingProject\PackageTools\Editor\EditorGUIx.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\PackageTools\Editor\EditorBase.cs" />
     <Compile Include="Assets\AstarPathfindingProject\PackageTools\Editor\EnumFlagDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -326,6 +326,9 @@
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Threading.Channels">
+      <HintPath>Assets\Plugins\System.Threading.Channels.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -344,8 +347,14 @@
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>Assets\Plugins\RabbitMQ.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
@@ -356,29 +365,20 @@
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Cecil.Rocks">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.ClipperLib">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\Clipper\Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Channels">
-      <HintPath>Assets\Plugins\System.Threading.Channels.dll</HintPath>
-    </Reference>
-    <Reference Include="RabbitMQ.Client">
-      <HintPath>Assets\Plugins\RabbitMQ.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.ClipperLib">
-      <HintPath>Assets\AstarPathfindingProject\Plugins\Clipper\Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Poly2Tri">
       <HintPath>Assets\AstarPathfindingProject\Plugins\Poly2Tri\Pathfinding.Poly2Tri.dll</HintPath>

@@ -18,7 +18,7 @@ public class ActorManager : MonoBehaviour
 
     private float LastClearTime;
 
-    private float ClearInterval;
+    private float ClearInterval = 10;
 
     private void Awake()
     {
@@ -105,7 +105,7 @@ public class ActorManager : MonoBehaviour
         if (actors.ContainsKey(uid))
         {
             actors.Remove(uid);
-            actor.model.Destroy();
+            Destroy(actor.model);
         }
     }
 

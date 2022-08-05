@@ -13,13 +13,15 @@ using Newtonsoft.Json.Serialization;
 
 public class DanmuConsumer : MonoBehaviour
 {
+    private readonly PrefixLogger logger = new("DanmuConsumer");
+
     private IModel channel;
     private EventingBasicConsumer consumer;
     private string consumerTag;
 
-    private JsonSerializerSettings deserializerSettings = new JsonSerializerSettings
+    private readonly JsonSerializerSettings deserializerSettings = new()
     {
-        ContractResolver = new CamelCasePropertyNamesContractResolver()
+        ContractResolver = new DefaultContractResolver{NamingStrategy = new SnakeCaseNamingStrategy()}
     };
 
     // Start is called before the first frame update
@@ -46,10 +48,12 @@ public class DanmuConsumer : MonoBehaviour
             Dictionary<string, object> record = JsonConvert.DeserializeObject<Dictionary<string, object>>(str);
             string actionType = (string)record.GetValueOrDefault("action_type");
 
+            Debug.Log(actionType);
             if (actionType == ActionTypeConstants.ChatType)
             {
                 ChatMessage chatMessage = JsonConvert.DeserializeObject<ChatMessage>(str, deserializerSettings);
                 Actor actor = ActorManager.Instance.GetActor(chatMessage.UserId);
+                Debug.Log(chatMessage.Nickname);
                 if (actor == null)
                 {
                     ActorManager.Instance.AddActor(chatMessage.UserId, chatMessage.Nickname, chatMessage.Avatar);

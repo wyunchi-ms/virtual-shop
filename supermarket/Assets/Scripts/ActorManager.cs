@@ -50,6 +50,8 @@ public class ActorManager : MonoBehaviour
             AIDestinationSetter setter = actor.model.GetComponent<AIDestinationSetter>();
             setter.target = gameObjects[0].GetComponent<Transform>();
             StartCoroutine(DownloadImage(actor, actor.avatar));
+            actor.chatBubble = actor.model.AddComponent<ChatBubble>();
+            actor.chatBubble.Init(actor);
         }
         float currentTime = Time.time;
         if (currentTime >= LastClearTime + ClearInterval)
@@ -105,6 +107,7 @@ public class ActorManager : MonoBehaviour
         if (actors.ContainsKey(uid))
         {
             actors.Remove(uid);
+            Destroy(actor.chatBubble);
             Destroy(actor.model);
         }
     }

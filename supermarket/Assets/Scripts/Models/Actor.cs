@@ -12,6 +12,8 @@ public class Actor
 
     public GameObject model;
 
+    public ChatBubble chatBubble;
+
     public float expireTime;
 
     public void Chat(string Content)

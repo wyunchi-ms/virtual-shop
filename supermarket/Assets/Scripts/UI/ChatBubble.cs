@@ -9,7 +9,10 @@ public class ChatBubble : MonoBehaviour
 
     private GameObject go;
 
+    public GameObject chatBubblePrefab;
+
     private TextMeshProUGUI text;
+    //private Text text;
 
     private Camera camera;
 
@@ -17,13 +20,12 @@ public class ChatBubble : MonoBehaviour
     {
         camera = GameObject.Find("MainCamera").GetComponent<Camera>();
         Canvas UI = GameObject.Find("UI").GetComponent<Canvas>();
-        go = new GameObject(actor.nickname, typeof(TextMeshProUGUI));
+        go = Instantiate(chatBubblePrefab, new Vector3(0, 0, 0), Quaternion.identity);
         text = go.GetComponent<TextMeshProUGUI>();
-        text.raycastTarget = false;
-        text.color = Color.black;
         go.transform.SetParent(UI.transform);
 
-        text.text = "123";
+        ShowChatMessage("中文");
+
         targetActor = actor.model;
     }
 
@@ -31,21 +33,25 @@ public class ChatBubble : MonoBehaviour
     {
     }
 
-    private void Follow()
-    {
-        
-    }
-
     void Update()
     {
         if (text != null)
         {
-            text.transform.position = camera.WorldToScreenPoint(targetActor.transform.position);
+            text.transform.position = camera.WorldToScreenPoint(targetActor.transform.position) + new Vector3(10, 20, 0);
         }
     }
 
-    void Destroy()
+    public void ShowChatMessage(string message)
     {
+        text.text = message;
+        float width = text.preferredWidth;
+        float height = text.preferredHeight;
+        text.rectTransform.sizeDelta = new Vector2(width, height);
+    }
+
+    public void Destroy()
+    {
+        Debug.Log("Destroy");
         if (text != null)
         {
             Destroy(text);

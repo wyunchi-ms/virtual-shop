@@ -14,6 +14,8 @@ public class ActorManager : MonoBehaviour
 
     private readonly ConcurrentQueue<Actor> queue = new();
 
+    private GameObject avatarContainer;
+
     public GameObject avatarPrefab;
 
     private float LastClearTime;
@@ -36,6 +38,7 @@ public class ActorManager : MonoBehaviour
     void Start()
     {
         LastClearTime = Time.time;
+        avatarContainer = GameObject.Find("AvatarContainer");
     }
 
     // Update is called once per frame
@@ -47,10 +50,11 @@ public class ActorManager : MonoBehaviour
             float x = Random.Range(-9f, 9f);
             float y = Random.Range(-16f, 16f);
             actor.model = Instantiate(avatarPrefab, new Vector3(x, y, 0), Quaternion.identity);
+            actor.model.transform.SetParent(avatarContainer.transform);
             AIDestinationSetter setter = actor.model.GetComponent<AIDestinationSetter>();
             setter.target = gameObjects[0].GetComponent<Transform>();
             StartCoroutine(DownloadImage(actor, actor.avatar));
-            actor.chatBubble = actor.model.AddComponent<ChatBubble>();
+            actor.chatBubble = actor.model.GetComponent<ChatBubble>();
             actor.chatBubble.Init(actor);
         }
         float currentTime = Time.time;
@@ -107,7 +111,7 @@ public class ActorManager : MonoBehaviour
         if (actors.ContainsKey(uid))
         {
             actors.Remove(uid);
-            Destroy(actor.chatBubble);
+            actor.chatBubble.Destroy();
             Destroy(actor.model);
         }
     }

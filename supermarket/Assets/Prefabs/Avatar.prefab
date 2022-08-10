@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -8919656923641592300}
   - component: {fileID: -8837267415412557425}
   - component: {fileID: 8833129469608714384}
+  - component: {fileID: 4176281185458861}
   m_Layer: 6
   m_Name: Avatar
   m_TagString: Player
@@ -290,3 +291,17 @@ MonoBehaviour:
   wallAvoidFalloff: 1
   priority: 0.5
   debug: 0
+--- !u!114 &4176281185458861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147144887230003675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f001fdf0355e31f4ea276b7acc483666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetActor: {fileID: 0}
+  chatBubblePrefab: {fileID: 7648781828685669004, guid: fc4d27c2de7dacf43a5d67b6b9676ca7, type: 3}

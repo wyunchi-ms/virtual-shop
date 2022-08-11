@@ -123,6 +123,42 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3709588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3709589}
+  m_Layer: 0
+  m_Name: Map
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3709589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 552976014}
+  - {fileID: 1982950512}
+  - {fileID: 343911580}
+  - {fileID: 701831446}
+  - {fileID: 515675505}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &30541518
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,8 +171,8 @@ GameObject:
   - component: {fileID: 30541520}
   - component: {fileID: 30541519}
   m_Layer: 3
-  m_Name: Counter5
-  m_TagString: Obstacle
+  m_Name: "\u996E\u6599\u533A"
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,13 +262,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30541518}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.9, y: -99.9, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -55, y: -92, z: -0.49908924}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 515675505}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &49336618
 GameObject:
@@ -246,8 +282,8 @@ GameObject:
   - component: {fileID: 49336620}
   - component: {fileID: 49336619}
   m_Layer: 3
-  m_Name: Counter3
-  m_TagString: Obstacle
+  m_Name: "\u51B7\u51BB\u98DF\u54C1\u533A"
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,13 +373,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49336618}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.6, y: -2.3, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -57, y: 12, z: -0.49908924}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 515675505}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &107453872
 GameObject:
@@ -440,7 +476,6 @@ GameObject:
   - component: {fileID: 343911580}
   - component: {fileID: 343911581}
   - component: {fileID: 343911582}
-  - component: {fileID: 343911584}
   - component: {fileID: 343911583}
   m_Layer: 0
   m_Name: Map
@@ -456,13 +491,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343911579}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 300, y: 300, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 3709589}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &343911581
 MonoBehaviour:
@@ -478,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAABAIeyKyg8LmwIAAKAFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VNtuGjEQ/RXk5xItlITQtxYIaaUkKLTKQ8mDWc+yFl575UuARPx7Z7wLu9BWQlpz5szljGf8waR2JaTe2JmV4sEIYF86jM7sU6cx3sOOr41eyHc4cl6k8DmReOQ8cy8N4j1yc6YAb2X6Va8VkRMEg5aZscVUrGFsnHcIZ1w5QJM1nrw1Qh8dtsNPd0Quezz1h3R6x9Mo6RzwmIL2YBvqkXikVaygU8WLEgSV3JD7/cHVbe0wSCqqRkE1K7kaUAajlHR1Pczvy6h3UeZggQQLyVFerIHU5iDXuafgbd+nLHPg67os30+kxS5VQdk3U7Wu4G5TFffGVaA0w36sqYr58Je524vmzJri/pi2l1AKn8t088z3KXe+1do2PDmvO+gtVxu+UvCSg340M2uCFmj0NpBrcNCfNH9PysY5pJsGr0q9AEP5/wsiDYcofjdWslid+o7AQpnY7Xj9YPFmvmPBcThcHQJRquKXg5983Z6i2nAnrfNoqlVqKm9lgiUqm8aekZrgx8ZqiHBddAmaK7+fYxh/eYMXtlbaC8sdp32pk9e24xpcuES44SfJhWluts1lOfgRinJupPYL4DbNW/FcbrYP4PKn4JXU0CgiwyM2cWy0rqbP/cNtEWzG05abh50PFibc87gCWBNOiWi7YkOjhw5K0UBGFRT8N6qg3ys1OeeYV0WYPRodt+fs+0qDsA5SnI85SwbX4nY0WA2T4c112hPdTAxuBpD2RiuRwudRyuIeSI0952peNa2+Kpwg3WjROPPHJ60zs7yMiycs387ke2Fa1y91ZhapBdBPZxEcWMyBD4SYCokqF+C91HH02MeSKZNuQCxP/GXs63TnLW+DpXwznoAlG8cXbMkIPm3V3MKbhC2lProd2OEPUEsDBBQAAAgIAABAIexSX4jqbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSgYlpioWlSZK5gbmZabJhim5aiomZSWqyoWVSSnKqsWWyUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAABAIeyKyg8LmwIAAKAFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAABAIexSX4jqbQAAAHgAAAAJACQAAAAAAAAAAAAAAOgCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAoAMAAAAA
+    dataString: UEsDBBQAAAgIAABAIeyFCjzPngIAAKEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VNtuGjEQ/RXk5xItlITQtxYIaaUkKLTKQ8mDWc+yFl575UuARPx7Z7wLu9BWQlpz5szljGf8waR2JaTe2JmV4sEIYF86jM7sU6cx3sOOr41eyHc4cl6k8DmReOQ8cy8N4j1yc6YAb2X6Va8VkRMEg5aZscVUrGFsnHcIZ1w5QJM1nrw1Qh8dtsNPd0Quezz1h3R6x9Mo6RzwmIL2YBvqkXikVaygU8WLEgSV3JD7/cHVbe0wSCqqRkE1K7kaUAajlHR1Pczvy6h3UeZggQQLyVFerIHU5iDXuafgbd+nLHPg67os30+kxS5VQdk3U7Wu4G5TFffGVaA0w36sqYr58Je524vmzJri/pi2l1AKn8t088z3KXe+1do2PDmvO+gtVxu+UvCSg340M2uCFmj0NpBrcNCfNH9PysY5pJsGr0q9AEP5/wsiDYcofjdWslid+o7AQpnY7Xj9YPFmvmPBcThcHQJRquKXg5983Z6i2nAnrfNoqlVqKm9lgiUqm8aekZrgx8ZqiHBddAmaK7+fYxh/eYMXtlbaC8sdp32pk9e24xpcuES44SfJhWluts1lOfgRinJupPYL4DbNW/FcbrYP4PKn4JXU0CgiwyM2cWy0rqbP/cNtEWzG05abh50PFibc87gCWBNOiWi7YkOjhw5K0UBGFRT8N6qg3ys1OeeYV0WYPRodt+fs+0qDsA5SnI85SwbX4nY0WA2T4c112hPdTAxuBpD2RiuRwudRyuIeSI0952peNa2+Kpwg3WjROPPHJ60zs7yMiycs387ke2Fa1y91ZhapBdBPZxEcWMyBD4SYCokqF+C91HH02MeSKZNuQCxP/GXs63TnLV82HVuyUr4ZT8iSjeMTtmQEn9ZqbuFNwpZyH4Md2OEPUEsDBBQAAAgIAABAIexSX4jqbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSgYlpioWlSZK5gbmZabJhim5aiomZSWqyoWVSSnKqsWWyUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAABAIeyFCjzPngIAAKEFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAABAIexSX4jqbQAAAHgAAAAJACQAAAAAAAAAAAAAAOsCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAowMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -578,25 +613,6 @@ MonoBehaviour:
   version: 1
   uniqueID: 4820540258072564314
   wallHeight: 5
---- !u!114 &343911584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343911579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1764de1de43cc4d19af52679d3eaae06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  desiredSimulationFPS: 10
-  workerThreads: 2
-  doubleBuffering: 0
-  symmetryBreakingBias: 0.1
-  movementPlane: 1
-  drawObstacles: 0
 --- !u!1 &405609273
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +696,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 701831446}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &515675504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515675505}
+  m_Layer: 0
+  m_Name: AreaContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &515675505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515675504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1653709965}
+  - {fileID: 1959531440}
+  - {fileID: 49336621}
+  - {fileID: 1544643731}
+  - {fileID: 30541521}
+  - {fileID: 910688340}
+  m_Father: {fileID: 3709589}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -765,6 +818,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &552976013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 552976014}
+  - component: {fileID: 552976015}
+  m_Layer: 0
+  m_Name: RVOSimulator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &552976014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552976013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3709589}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &552976015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552976013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1764de1de43cc4d19af52679d3eaae06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  desiredSimulationFPS: 10
+  workerThreads: 2
+  doubleBuffering: 0
+  symmetryBreakingBias: 0.1
+  movementPlane: 1
+  drawObstacles: 0
 --- !u!1 &666228739
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +976,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701831445}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -881,8 +985,8 @@ Transform:
   - {fileID: 666228741}
   - {fileID: 107453874}
   - {fileID: 1718915961}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 3709589}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &766374265
 GameObject:
@@ -913,7 +1017,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &910688337
 GameObject:
@@ -927,8 +1031,8 @@ GameObject:
   - component: {fileID: 910688339}
   - component: {fileID: 910688338}
   m_Layer: 3
-  m_Name: Counter6
-  m_TagString: Obstacle
+  m_Name: "\u679C\u852C\u533A"
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1018,13 +1122,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910688337}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.4, y: -99.9, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 50, y: -92, z: -0.49908924}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 515675505}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1311367978
 GameObject:
@@ -1092,7 +1196,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1544643728
 GameObject:
@@ -1106,8 +1210,8 @@ GameObject:
   - component: {fileID: 1544643730}
   - component: {fileID: 1544643729}
   m_Layer: 3
-  m_Name: Counter4
-  m_TagString: Obstacle
+  m_Name: "\u81A8\u5316\u98DF\u54C1\u533A"
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1197,13 +1301,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544643728}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.5, y: -1.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 50, y: 12, z: -0.49908924}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 515675505}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1653709962
 GameObject:
@@ -1217,8 +1321,8 @@ GameObject:
   - component: {fileID: 1653709964}
   - component: {fileID: 1653709963}
   m_Layer: 3
-  m_Name: Counter1
-  m_TagString: Obstacle
+  m_Name: "\u5976\u5236\u54C1\u533A"
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1308,13 +1412,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653709962}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.9, y: 99.1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -54, y: 109, z: -0.49908924}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 515675505}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1718915959
 GameObject:
@@ -1493,7 +1597,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1596,8 +1700,8 @@ GameObject:
   - component: {fileID: 1959531439}
   - component: {fileID: 1959531438}
   m_Layer: 3
-  m_Name: Counter2
-  m_TagString: Obstacle
+  m_Name: "\u8089\u98DF\u54C1\u533A"
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1687,13 +1791,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959531437}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.5, y: 98, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 50, y: 113, z: -0.49908924}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 515675505}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982950510
 GameObject:
@@ -1706,7 +1810,7 @@ GameObject:
   - component: {fileID: 1982950512}
   - component: {fileID: 1982950511}
   m_Layer: 0
-  m_Name: Shop
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1771,11 +1875,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982950510}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 225, y: 400, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 3709589}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -102,11 +102,6 @@ public class DanmuConsumer : MonoBehaviour
             {
                 SocialMessage socialMessage = JsonConvert.DeserializeObject<SocialMessage>(str, deserializerSettings);
             }
-
-            // ulong uid = Convert.ToUInt64(record.GetValueOrDefault("user_id"));
-            // string nickname = (string)record.GetValueOrDefault("nickname");
-            // string avatarUrl = (string)record.GetValueOrDefault("avatar");
-            // ActorManager.Instance.AddActor(uid, nickname, avatarUrl);
         };
 
         channel.BasicQos(0, 1, false);

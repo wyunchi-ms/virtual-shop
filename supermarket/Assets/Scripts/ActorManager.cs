@@ -44,7 +44,8 @@ public class ActorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var gameObjects = GameObject.FindGameObjectsWithTag("Obstacle");
+        var counters = GameObject.FindGameObjectsWithTag("Area");
+        int counterNum = counters.Length;
         while (queue.TryDequeue(out Actor actor))
         {
             float x = Random.Range(-9f, 9f);
@@ -52,7 +53,7 @@ public class ActorManager : MonoBehaviour
             actor.model = Instantiate(avatarPrefab, new Vector3(x, y, 0), Quaternion.identity);
             actor.model.transform.SetParent(avatarContainer.transform);
             AIDestinationSetter setter = actor.model.GetComponent<AIDestinationSetter>();
-            setter.target = gameObjects[0].GetComponent<Transform>();
+            setter.target = counters[Random.Range(0, counterNum)].GetComponent<Transform>();
             StartCoroutine(DownloadImage(actor, actor.avatar));
             actor.chatBubble = actor.model.GetComponent<ChatBubble>();
             actor.chatBubble.Init(actor);

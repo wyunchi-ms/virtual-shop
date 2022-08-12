@@ -1617,6 +1617,7 @@ GameObject:
   - component: {fileID: 1928395608}
   - component: {fileID: 1928395607}
   - component: {fileID: 1928395609}
+  - component: {fileID: 1928395610}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1688,6 +1689,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatarPrefab: {fileID: 147144887230003675, guid: 6b30a4ee54549b9408e95b1c38cb09de, type: 3}
+--- !u!114 &1928395610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928395603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb5c77152928304581f33718a103621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1959531437
 GameObject:
   m_ObjectHideFlags: 0

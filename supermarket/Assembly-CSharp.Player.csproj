@@ -90,6 +90,7 @@
     <Compile Include="Assets\NGUI\Scripts\UI\UILocalize.cs" />
     <Compile Include="Assets\Scripts\Models\Messages\FansclubMessage.cs" />
     <Compile Include="Assets\NGUI\Scripts\Internal\BMGlyph.cs" />
+    <Compile Include="Assets\Scripts\Models\GameConfig.cs" />
     <Compile Include="Assets\NGUI\Scripts\Tweening\AnimatedWidget.cs" />
     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenFill.cs" />
     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenPosition.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="Assets\NGUI\Examples\Scripts\Other\Spin.cs" />
     <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
     <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonKeys.cs" />
+    <Compile Include="Assets\Scripts\ConfigManager.cs" />
     <Compile Include="Assets\NGUI\Scripts\Interaction\UIToggledObjects.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\Other\WindowAutoYaw.cs" />
     <Compile Include="Assets\NGUI\Scripts\Interaction\UIShowControlScheme.cs" />
@@ -503,6 +505,9 @@
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="YamlDotNet">
+      <HintPath>Assets\Plugins\YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>

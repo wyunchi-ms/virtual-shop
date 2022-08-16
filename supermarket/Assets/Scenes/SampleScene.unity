@@ -863,7 +863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  desiredSimulationFPS: 10
+  desiredSimulationFPS: 20
   workerThreads: 2
   doubleBuffering: 0
   symmetryBreakingBias: 0.1

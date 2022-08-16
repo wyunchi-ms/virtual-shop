@@ -20,7 +20,7 @@ public class ActorManager : MonoBehaviour
 
     private float LastClearTime;
 
-    private float ClearInterval = 10;
+    private readonly float ClearInterval = 10;
 
     private void Awake()
     {
@@ -50,12 +50,12 @@ public class ActorManager : MonoBehaviour
         {
             float x = Random.Range(-9f, 9f);
             float y = Random.Range(-16f, 16f);
-            actor.model = Instantiate(avatarPrefab, new Vector3(x, y, 0), Quaternion.identity);
-            actor.model.transform.SetParent(avatarContainer.transform);
-            AIDestinationSetter setter = actor.model.GetComponent<AIDestinationSetter>();
+            actor.avatar = Instantiate(avatarPrefab, new Vector3(x, y, 0), Quaternion.identity);
+            actor.avatar.transform.SetParent(avatarContainer.transform);
+            AIDestinationSetter setter = actor.avatar.GetComponent<AIDestinationSetter>();
             setter.target = counters[Random.Range(0, counterNum)].GetComponent<Transform>();
-            StartCoroutine(DownloadImage(actor, actor.avatar));
-            actor.chatBubble = actor.model.GetComponent<ChatBubble>();
+            StartCoroutine(DownloadImage(actor, actor.avatarUrl));
+            actor.chatBubble = actor.avatar.GetComponent<ChatBubble>();
             actor.chatBubble.Init(actor);
         }
         float currentTime = Time.time;
@@ -77,7 +77,7 @@ public class ActorManager : MonoBehaviour
         else
         {
             Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            SpriteRenderer spriteRenderer = actor.model.GetComponent<SpriteRenderer>();
+            SpriteRenderer spriteRenderer = actor.avatar.GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0, 0));
         }
     }
@@ -100,7 +100,7 @@ public class ActorManager : MonoBehaviour
         {
             Debug.Log("AddActor123: " + avatar);
             Debug.Log("AddActor456: " + actors.Count);
-            Actor actor = new() { uid = uid, nickname = nickname, avatar = avatar };
+            Actor actor = new() { uid = uid, nickname = nickname, avatarUrl = avatar };
             actors.Add(actor.uid, actor);
             queue.Enqueue(actor);
         }
@@ -113,7 +113,7 @@ public class ActorManager : MonoBehaviour
         {
             actors.Remove(uid);
             actor.chatBubble.Destroy();
-            Destroy(actor.model);
+            Destroy(actor.avatar);
         }
     }
 

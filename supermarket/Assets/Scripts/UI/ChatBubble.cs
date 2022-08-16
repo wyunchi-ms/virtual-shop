@@ -26,7 +26,7 @@ public class ChatBubble : MonoBehaviour
 
         ShowChatMessage("中文");
 
-        targetActor = actor.model;
+        targetActor = actor.avatar;
     }
 
     void Start()

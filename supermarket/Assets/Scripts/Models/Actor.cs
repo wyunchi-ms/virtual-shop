@@ -8,17 +8,22 @@ public class Actor
 {
     public ulong uid;
     public string nickname;
-    public string avatar;
+    public string avatarUrl;
 
-    public GameObject model;
+    public GameObject avatar;
 
     public ChatBubble chatBubble;
 
+    public Dictionary<string, int> goods = new();
+
     public float expireTime;
 
-    public void Chat(string Content)
+    public void Chat(string content)
     {
-
+        if (chatBubble != null)
+        {
+            chatBubble.ShowChatMessage(content);
+        }
     }
 
     public void Hangout()
@@ -28,7 +33,12 @@ public class Actor
 
     public void PayBill()
     {
-
+        float total = 0;
+        foreach (var item in goods)
+        {
+            total += ConfigManager.Instance.goodsPriceConfig[item.Key] * item.Value;
+        }
+        
     }
 
     public void GotoArea(string area)

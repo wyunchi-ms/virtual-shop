@@ -6,10 +6,8 @@ using System.Collections.Concurrent;
 using UnityEngine.Networking;
 using Pathfinding;
 
-public class ActorManager : MonoBehaviour
+public class ActorManager : Singleton<ActorManager>
 {
-    public static ActorManager Instance { get; private set; }
-
     private readonly Dictionary<ulong, Actor> actors = new();
 
     private readonly ConcurrentQueue<Actor> queue = new();
@@ -21,18 +19,6 @@ public class ActorManager : MonoBehaviour
     private float LastClearTime;
 
     private readonly float ClearInterval = 10;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
 
     // Start is called before the first frame update
     void Start()

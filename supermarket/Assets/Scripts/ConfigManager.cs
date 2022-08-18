@@ -12,7 +12,7 @@ public class ConfigManager : Singleton<ConfigManager>
 {
     public GameConfig gameConfig;
 
-    public Dictionary<string, float> goodsPriceConfig;
+    public Dictionary<GoodsType, List<Dictionary<string, float>>> goodsPriceConfig;
 
     void Start()
     {
@@ -20,7 +20,9 @@ public class ConfigManager : Singleton<ConfigManager>
         string content = File.ReadAllText(@"E:\project\virtual-shop\supermarket\Configs\Game.yml");
         gameConfig = deserializer.Deserialize<GameConfig>(content);
         content = File.ReadAllText(@"E:\project\virtual-shop\supermarket\Configs\GoodsPrice.yml");
-        goodsPriceConfig = deserializer.Deserialize<Dictionary<string, float>>(content);
+        goodsPriceConfig = deserializer.Deserialize<Dictionary<GoodsType, List<Dictionary<string, float>>>>(content);
         Debug.Log(goodsPriceConfig.Keys);
     }
+
+    public List<string>
 }

@@ -10,13 +10,23 @@ public class Actor
     public string nickname;
     public string avatarUrl;
 
-    public GameObject avatar;
+    private GameObject _avatar;
+
+    public GameObject avatar
+    {
+        get => _avatar;
+        set 
+        {
+            _avatar = value;
+            controller = _avatar.GetComponent<ActorController>();
+        }
+    }
 
     public ChatBubble chatBubble;
 
-    public Dictionary<string, int> goods = new();
-
     public float expireTime;
+
+    private ActorController controller;
 
     public void Chat(string content)
     {
@@ -24,25 +34,5 @@ public class Actor
         {
             chatBubble.ShowChatMessage(content);
         }
-    }
-
-    public void Hangout()
-    {
-
-    }
-
-    public void PayBill()
-    {
-        float total = 0;
-        foreach (var item in goods)
-        {
-            total += ConfigManager.Instance.goodsPriceConfig[item.Key] * item.Value;
-        }
-        
-    }
-
-    public void GotoArea(string area)
-    {
-        
     }
 }

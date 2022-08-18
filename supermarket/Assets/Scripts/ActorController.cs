@@ -49,5 +49,6 @@ public class ActorController : MonoBehaviour
         var pointers = GameObject.FindGameObjectsWithTag(goodsType.ToString());
         AIDestinationSetter setter = this.gameObject.GetComponent<AIDestinationSetter>();
         setter.target = pointers[Random.Range(0, pointers.Count)].GetComponent<Transform>();
+        status = ActorStatus.Walk;
     }
 }

@@ -6,4 +6,5 @@ public enum ActorStatus
 {
     Hangout,
     PayBill,
+    Walk,
 }
